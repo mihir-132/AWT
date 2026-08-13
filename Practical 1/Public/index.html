@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- AngularJS Files -->
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+
+</head>
+
+<body ng-controller="StudentController">
+
+<div class="container">
+
+    <h1>🎓 Student Registration Portal</h1>
+
+    <p class="subtitle">
+        Please fill in your details below.
+    </p>
+
+    <form
+    name="registrationForm"
+    ng-submit="registerStudent()"
+    novalidate>
+
+        <fieldset>
+
+            <legend>Personal Information</legend>
+
+            <!-- Name -->
+
+            <label>👤 Full Name</label>
+
+            <input
+                type="text"
+                ng-model="student.name"
+                placeholder="Enter your full name"
+                required>
+
+            <!-- Email -->
+
+            <label>📧 Email</label>
+
+            <input
+                type="email"
+                ng-model="student.email"
+                placeholder="example@gmail.com"
+                required>
+
+            <!-- Mobile -->
+
+            <label>📱 Mobile Number</label>
+
+            <input
+                type="tel"
+                ng-model="student.mobile"
+                pattern="[0-9]{10}"
+                placeholder="9876543210"
+                required>
+
+            <!-- DOB -->
+
+            <label>🎂 Date of Birth</label>
+
+            <input
+                type="date"
+                ng-model="student.dob"
+                required>
+
+            <!-- Gender -->
+
+            <label>⚧ Gender</label>
+
+            <div class="gender">
+
+                <label>
+                    <input
+                        type="radio"
+                        ng-model="student.gender"
+                        value="Male"
+                        required>
+                    Male
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        ng-model="student.gender"
+                        value="Female">
+                    Female
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        ng-model="student.gender"
+                        value="Other">
+                    Other
+                </label>
+
+            </div>
+
+            <!-- Course -->
+
+            <label>📚 Course</label>
+
+            <select
+                ng-model="student.course"
+                required>
+
+                <option value="">Select Course</option>
+
+                <option>BCA</option>
+                <option>BSc IT</option>
+                <option>BCom</option>
+                <option>BBA</option>
+                <option>B.Tech CSE</option>
+
+            </select>
+
+            <!-- Address -->
+
+            <label>🏠 Address</label>
+
+            <textarea
+                rows="4"
+                ng-model="student.address"
+                placeholder="Enter your address"
+                required></textarea>
+
+        </fieldset>
+
+        <div class="buttons">
+
+            <input
+    		type="submit"
+    		value="Register"
+    		ng-disabled="registrationForm.$invalid">
+
+            <input
+                type="reset"
+                value="Reset"
+                ng-click="resetForm()">
+
+        </div>
+
+    </form>
+
+    <!-- Success Message -->
+
+    <p
+        style="color:lime;text-align:center;margin-top:20px;"
+        ng-if="successMessage">
+
+        {{successMessage}}
+
+    </p>
+
+    <!-- Error Message -->
+
+    <p
+        style="color:red;text-align:center;margin-top:20px;"
+        ng-if="errorMessage">
+
+        {{errorMessage}}
+
+    </p>
+
+</div>
+
+</body>
+</html>

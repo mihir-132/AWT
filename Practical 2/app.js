@@ -1,27 +1,48 @@
 function StudentRegistration() {
 
-    const [name, setName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [mobile, setMobile] = React.useState("");
-    const [dob, setDob] = React.useState("");
-    const [gender, setGender] = React.useState("");
-    const [course, setCourse] = React.useState("");
-    const [address, setAddress] = React.useState("");
+    // =========================
+    // Controlled Form State
+    // =========================
+
+    const [student, setStudent] = React.useState({
+
+        name: "",
+        email: "",
+        mobile: "",
+        dob: "",
+        gender: "",
+        course: "",
+        address: ""
+
+    });
 
 
-function handleSubmit(event) {
+    // =========================
+    // Handle Input Changes
+    // =========================
+
+    function handleChange(event) {
+
+        const { name, value } = event.target;
+
+        setStudent({
+
+            ...student,
+
+            [name]: value
+
+        });
+
+    }
+
+
+    // =========================
+    // Handle Form Submission
+    // =========================
+
+  function handleSubmit(event) {
 
     event.preventDefault();
-
-    const student = {
-        name: name,
-        email: email,
-        mobile: mobile,
-        dob: dob,
-        gender: gender,
-        course: course,
-        address: address
-    };
 
     fetch("/register", {
 
@@ -43,13 +64,7 @@ function handleSubmit(event) {
 
         if (data.message === "Student registered successfully!") {
 
-            setName("");
-            setEmail("");
-            setMobile("");
-            setDob("");
-            setGender("");
-            setCourse("");
-            setAddress("");
+            handleReset();
 
         }
 
@@ -65,6 +80,32 @@ function handleSubmit(event) {
 
 }
 
+
+    // =========================
+    // Reset Form
+    // =========================
+
+    function handleReset() {
+
+        setStudent({
+
+            name: "",
+            email: "",
+            mobile: "",
+            dob: "",
+            gender: "",
+            course: "",
+            address: ""
+
+        });
+
+    }
+
+
+    // =========================
+    // View
+    // =========================
+
     return (
 
         <div className="container">
@@ -72,7 +113,7 @@ function handleSubmit(event) {
             <h1>🎓 Student Registration Portal</h1>
 
             <p className="subtitle">
-                Please fill in your details below.
+                Form Handling Using Controlled Components
             </p>
 
 
@@ -85,66 +126,72 @@ function handleSubmit(event) {
 
                     {/* Name */}
 
-                    <label>👤 Full Name</label>
+                    <label>
+                        👤 Full Name
+                    </label>
 
                     <input
                         type="text"
+                        name="name"
                         placeholder="Enter your full name"
-                        value={name}
-                        onChange={(event) =>
-                            setName(event.target.value)
-                        }
+                        value={student.name}
+                        onChange={handleChange}
                         required
                     />
 
 
                     {/* Email */}
 
-                    <label>📧 Email</label>
+                    <label>
+                        📧 Email
+                    </label>
 
                     <input
                         type="email"
+                        name="email"
                         placeholder="example@gmail.com"
-                        value={email}
-                        onChange={(event) =>
-                            setEmail(event.target.value)
-                        }
+                        value={student.email}
+                        onChange={handleChange}
                         required
                     />
 
 
                     {/* Mobile */}
 
-                    <label>📱 Mobile Number</label>
+                    <label>
+                        📱 Mobile Number
+                    </label>
 
                     <input
                         type="tel"
+                        name="mobile"
                         placeholder="9876543210"
-                        value={mobile}
-                        onChange={(event) =>
-                            setMobile(event.target.value)
-                        }
+                        value={student.mobile}
+                        onChange={handleChange}
                         required
                     />
 
 
-                    {/* Date of Birth */}
+                    {/* DOB */}
 
-                    <label>🎂 Date of Birth</label>
+                    <label>
+                        🎂 Date of Birth
+                    </label>
 
                     <input
                         type="date"
-                        value={dob}
-                        onChange={(event) =>
-                            setDob(event.target.value)
-                        }
+                        name="dob"
+                        value={student.dob}
+                        onChange={handleChange}
                         required
                     />
 
 
                     {/* Gender */}
 
-                    <label>⚧ Gender</label>
+                    <label>
+                        ⚧ Gender
+                    </label>
 
                     <div className="gender">
 
@@ -154,10 +201,8 @@ function handleSubmit(event) {
                                 type="radio"
                                 name="gender"
                                 value="Male"
-                                checked={gender === "Male"}
-                                onChange={(event) =>
-                                    setGender(event.target.value)
-                                }
+                                checked={student.gender === "Male"}
+                                onChange={handleChange}
                                 required
                             />
 
@@ -172,10 +217,8 @@ function handleSubmit(event) {
                                 type="radio"
                                 name="gender"
                                 value="Female"
-                                checked={gender === "Female"}
-                                onChange={(event) =>
-                                    setGender(event.target.value)
-                                }
+                                checked={student.gender === "Female"}
+                                onChange={handleChange}
                             />
 
                             Female
@@ -189,10 +232,8 @@ function handleSubmit(event) {
                                 type="radio"
                                 name="gender"
                                 value="Other"
-                                checked={gender === "Other"}
-                                onChange={(event) =>
-                                    setGender(event.target.value)
-                                }
+                                checked={student.gender === "Other"}
+                                onChange={handleChange}
                             />
 
                             Other
@@ -204,13 +245,14 @@ function handleSubmit(event) {
 
                     {/* Course */}
 
-                    <label>📚 Course</label>
+                    <label>
+                        📚 Course
+                    </label>
 
                     <select
-                        value={course}
-                        onChange={(event) =>
-                            setCourse(event.target.value)
-                        }
+                        name="course"
+                        value={student.course}
+                        onChange={handleChange}
                         required
                     >
 
@@ -239,18 +281,18 @@ function handleSubmit(event) {
 
                     {/* Address */}
 
-                    <label>🏠 Address</label>
+                    <label>
+                        🏠 Address
+                    </label>
 
                     <textarea
+                        name="address"
                         rows="4"
                         placeholder="Enter your address"
-                        value={address}
-                        onChange={(event) =>
-                            setAddress(event.target.value)
-                        }
+                        value={student.address}
+                        onChange={handleChange}
                         required
                     ></textarea>
-
 
                 </fieldset>
 
@@ -265,27 +307,23 @@ function handleSubmit(event) {
                     <input
                         type="reset"
                         value="Reset"
-                        onClick={() => {
-                            setName("");
-                            setEmail("");
-                            setMobile("");
-                            setDob("");
-                            setGender("");
-                            setCourse("");
-                            setAddress("");
-                        }}
+                        onClick={handleReset}
                     />
 
                 </div>
-
 
             </form>
 
         </div>
 
     );
+
 }
 
+
+// =========================
+// Render React Component
+// =========================
 
 const root = ReactDOM.createRoot(
     document.getElementById("root")

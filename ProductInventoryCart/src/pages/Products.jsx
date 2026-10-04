@@ -8,7 +8,7 @@ function Products() {
 
     return (
         <div>
-            <h1>Product Store</h1>
+            <h1 className="page-title">OUR PRODUCTS</h1>
 
             <ProductList
                 search={search}

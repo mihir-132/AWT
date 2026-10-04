@@ -11,26 +11,48 @@ function CartItem({ item }) {
     return (
         <div className="cart-item">
 
-            <h3>{item.name}</h3>
+            <div className="cart-item-image">
+                <img
+                    src={item.image}
+                    alt={item.name}
+                />
+            </div>
 
-            <p>Price: ₹{item.price}</p>
+            <div className="cart-item-info">
 
-            <p>Quantity: {item.cartQuantity}</p>
+                <h3>{item.name}</h3>
 
-            <button onClick={() => decreaseQuantity(item.id)}>
-                -
-            </button>
+                <p>Price: ₹{item.price.toLocaleString("en-IN")}</p>
 
-            <button onClick={() => increaseQuantity(item.id)}>
-                +
-            </button>
+                <p>Quantity: {item.cartQuantity}</p>
 
-            <button onClick={() => removeFromCart(item.id)}>
+                <div className="cart-quantity-controls">
+
+                    <button
+                        onClick={() => decreaseQuantity(item.id)}
+                    >
+                        -
+                    </button>
+
+                    <button
+                        onClick={() => increaseQuantity(item.id)}
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                className="remove-button"
+                onClick={() => removeFromCart(item.id)}
+            >
                 Remove
             </button>
 
-            <p>
-                Subtotal: ₹{item.price * item.cartQuantity}
+            <p className="cart-subtotal">
+                Subtotal: ₹{(item.price * item.cartQuantity).toLocaleString("en-IN")}
             </p>
 
         </div>

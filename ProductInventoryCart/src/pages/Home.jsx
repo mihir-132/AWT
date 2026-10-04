@@ -1,13 +1,53 @@
 function Home() {
     return (
-        <div>
-            <h1>Welcome to Product Store</h1>
+        <main className="home-page">
 
-            <p>
-                Manage products and shop using our product inventory
-                and shopping cart application.
-            </p>
-        </div>
+            <section className="hero">
+
+                <div className="hero-overlay"></div>
+
+                <div className="hero-content">
+
+                    <p className="hero-label">
+                        // NEXT GENERATION INVENTORY SYSTEM
+                    </p>
+
+                    <h1>
+                        AETHER{" "}
+                        <span>STORE</span>
+                    </h1>
+
+                    <p className="hero-description">
+                        Your one-stop futuristic inventory
+                        and shopping destination.
+                    </p>
+
+                    <div className="hero-features">
+
+                        <div className="hero-feature">
+                            <span>◆</span>
+                            <p>Quality Products</p>
+                        </div>
+
+                        <div className="hero-feature">
+                            <span>⚡</span>
+                            <p>Fast & Easy Shopping</p>
+                        </div>
+
+                        <div className="hero-feature">
+                            <span>◇</span>
+                            <p>Secure & Reliable</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="hero-scanline"></div>
+
+            </section>
+
+        </main>
     );
 }
 

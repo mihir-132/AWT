@@ -22,34 +22,44 @@ function ProductList({ search, setSearch, category, setCategory }) {
     }, [search, category]);
 
     return (
-        <div>
+        <section className="products-section">
 
-            <SearchBar
-                search={search}
-                setSearch={setSearch}
-            />
+            <div className="products-toolbar">
 
-            <CategoryFilter
-                category={category}
-                setCategory={setCategory}
-            />
+                <SearchBar
+                    search={search}
+                    setSearch={setSearch}
+                />
 
-            <br />
+                <CategoryFilter
+                    category={category}
+                    setCategory={setCategory}
+                />
+
+            </div>
 
             {filteredProducts.length > 0 ? (
-                <div>
+
+                <div className="product-grid">
+
                     {filteredProducts.map((product) => (
                         <ProductCard
                             key={product.id}
                             product={product}
                         />
                     ))}
+
                 </div>
+
             ) : (
-                <p>No products found.</p>
+
+                <div className="no-products">
+                    <p>No products found.</p>
+                </div>
+
             )}
 
-        </div>
+        </section>
     );
 }
 

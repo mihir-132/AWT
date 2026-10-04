@@ -8,11 +8,23 @@ import Cart from "./pages/Cart";
 function App() {
     return (
         <BrowserRouter>
-            <nav>
-                <Link to="/">Home</Link> |{" "}
-                <Link to="/products">Products</Link> |{" "}
-		<Link to="/cart">Cart</Link>
-            </nav>
+           <nav className="navbar">
+
+   		 <div className="nav-logo">
+        		AETHER STORE
+    		</div>
+
+   		 <div className="nav-links">
+
+       			 <Link to="/">Home</Link>
+
+        		<Link to="/products">Products</Link>
+
+        		<Link to="/cart">Cart</Link>
+
+    		</div>
+
+           </nav>
 
             <Routes>
                 <Route path="/" element={<Home />} />

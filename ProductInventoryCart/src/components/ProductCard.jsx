@@ -17,7 +17,7 @@ function ProductCard({ product }) {
 
             <p>Category: {product.category}</p>
 
-            <p>Price: ₹{product.price}</p>
+            <p>Price: ₹{product.price.toLocaleString("en-IN")}</p>
 
             <p>Available: {product.quantity}</p>
 

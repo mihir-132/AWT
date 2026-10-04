@@ -13,32 +13,78 @@ function ProductDetails() {
     );
 
     if (!product) {
-        return <h2>Product not found.</h2>;
+        return (
+            <div className="details-page">
+                <div className="details-not-found">
+                    <h2>PRODUCT NOT FOUND</h2>
+                    <p>The requested product does not exist.</p>
+                </div>
+            </div>
+        );
     }
 
     return (
-        <div className="product-details">
+        <main className="details-page">
 
-            <h1>{product.name}</h1>
+            <div className="details-card">
 
-            <img
-                src={product.image}
-                alt={product.name}
-            />
+                <div className="details-image-panel">
 
-            <p>Product ID: {product.id}</p>
+                    <div className="details-image-glow"></div>
 
-            <p>Category: {product.category}</p>
+                    <img
+                        src={product.image}
+                        alt={product.name}
+                    />
 
-            <p>Price: ₹{product.price}</p>
+                </div>
 
-            <p>Available Quantity: {product.quantity}</p>
+                <div className="details-info">
 
-            <button onClick={() => addToCart(product)}>
-                Add to Cart
-            </button>
+                    <p className="details-label">
+                        // PRODUCT IDENTIFICATION
+                    </p>
 
-        </div>
+                    <h1>{product.name}</h1>
+
+                    <div className="details-line"></div>
+
+                    <div className="details-data">
+
+                        <p>
+                            <span>PRODUCT ID</span>
+                            {product.id}
+                        </p>
+
+                        <p>
+                            <span>CATEGORY</span>
+                            {product.category}
+                        </p>
+
+                        <p>
+                            <span>PRICE</span>
+                            ₹{product.price.toLocaleString("en-IN")}
+                        </p>
+
+                        <p>
+                            <span>AVAILABLE STOCK</span>
+                            {product.quantity}
+                        </p>
+
+                    </div>
+
+                    <button
+                        className="details-cart-button"
+                        onClick={() => addToCart(product)}
+                    >
+                        ADD TO CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
     );
 }
 

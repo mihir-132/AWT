@@ -16,32 +16,89 @@ function Cart() {
 
     if (cart.length === 0) {
         return (
-            <div>
-                <h1>Shopping Cart</h1>
-                <p>Your cart is empty.</p>
-            </div>
+            <main className="cart-page">
+
+                <div className="cart-empty">
+
+                    <p className="cart-label">
+                        // SHOPPING SYSTEM
+                    </p>
+
+                    <h1>SHOPPING CART</h1>
+
+                    <div className="cart-line"></div>
+
+                    <p>
+                        Your cart is currently empty.
+                    </p>
+
+                </div>
+
+            </main>
         );
     }
 
     return (
-        <div>
-            <h1>Shopping Cart</h1>
+        <main className="cart-page">
 
-            {cart.map((item) => (
-                <CartItem
-                    key={item.id}
-                    item={item}
-                />
-            ))}
+            <div className="cart-header">
 
-            <hr />
+                <div>
+                    <p className="cart-label">
+                        // SHOPPING SYSTEM
+                    </p>
 
-            <h2>
-                Total: ₹{totalPrice}
-            </h2>
+                    <h1>SHOPPING CART</h1>
+                </div>
 
-            <button>Checkout</button>
-        </div>
+                <div className="cart-count">
+                    {cart.length} ITEM{cart.length !== 1 ? "S" : ""}
+                </div>
+
+            </div>
+
+            <div className="cart-layout">
+
+                <section className="cart-items-panel">
+
+                    {cart.map((item) => (
+                        <CartItem
+                            key={item.id}
+                            item={item}
+                        />
+                    ))}
+
+                </section>
+
+                <aside className="cart-summary">
+
+                    <p className="summary-label">
+                        // TRANSACTION SUMMARY
+                    </p>
+
+                    <h2>ORDER SUMMARY</h2>
+
+                    <div className="summary-line"></div>
+
+                    <div className="summary-total">
+
+                        <span>TOTAL</span>
+
+                        <strong>
+                            ₹{totalPrice.toLocaleString("en-IN")}
+                        </strong>
+
+                    </div>
+
+                    <button className="checkout-button">
+                        PROCEED TO CHECKOUT
+                    </button>
+
+                </aside>
+
+            </div>
+
+        </main>
     );
 }
 

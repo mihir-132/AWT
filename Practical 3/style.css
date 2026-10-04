@@ -1,0 +1,631 @@
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: #eaf6ff;
+
+    /*
+       Frozen midnight sky
+    */
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(70, 110, 170, 0.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(50, 100, 160, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #030914,
+            #071426,
+            #0b1930,
+            #040b18
+        );
+}
+
+
+/* =========================================
+   MAIN DASHBOARD
+   ========================================= */
+
+.container {
+    width: 90%;
+    max-width: 950px;
+
+    margin: 50px auto;
+    padding: 35px;
+
+    /*
+       Slightly lighter than the night sky
+    */
+    background: rgba(18, 34, 58, 0.90);
+
+    border: 1px solid rgba(150, 210, 255, 0.22);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 0 35px rgba(80, 150, 220, 0.12),
+        inset 0 0 25px rgba(130, 190, 255, 0.035);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   DASHBOARD TITLE
+   ========================================= */
+
+h1 {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    font-size: 34px;
+
+    color: #e7f7ff;
+
+    text-shadow:
+        0 0 8px rgba(170, 225, 255, 0.8),
+        0 0 22px rgba(90, 180, 255, 0.35);
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+    padding: 12px;
+
+    background: rgba(3, 14, 29, 0.82);
+
+    border: 1px solid rgba(130, 200, 255, 0.18);
+
+    border-radius: 14px;
+
+    box-shadow:
+        inset 0 0 15px rgba(100, 180, 255, 0.03);
+}
+
+
+nav button {
+    padding: 11px 22px;
+
+    border: 1px solid rgba(150, 215, 255, 0.28);
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(45, 85, 120, 0.75),
+            rgba(25, 50, 80, 0.75)
+        );
+
+    color: #e8f7ff;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        border-color 0.25s;
+}
+
+
+nav button:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(170, 230, 255, 0.75);
+
+    box-shadow:
+        0 0 15px rgba(90, 190, 255, 0.28);
+}
+
+
+/* =========================================
+   CONTENT CONTAINER
+   ========================================= */
+
+.content {
+    min-height: 280px;
+
+    padding: 28px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(4, 15, 30, 0.72);
+
+    border: 1px solid rgba(140, 205, 255, 0.13);
+
+    box-shadow:
+        inset 0 0 25px rgba(80, 160, 230, 0.035);
+}
+
+
+/* =========================================
+   ELEMENT CARD - COMMON
+   ========================================= */
+
+.element-card {
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/*
+   Subtle shine across every elemental card
+*/
+
+.element-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -50%;
+
+    width: 50%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.07),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    pointer-events: none;
+}
+
+
+.element-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Keep content above decorative layers */
+
+.element-card h2,
+.element-card p,
+.element-card ul {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.element-card h2 {
+    margin-bottom: 18px;
+
+    font-size: 29px;
+}
+
+
+.element-card p {
+    margin: 10px 0;
+
+    line-height: 1.7;
+}
+
+
+.element-card ul {
+    padding-left: 25px;
+
+    margin-top: 15px;
+}
+
+
+.element-card li {
+    margin: 12px 0;
+}
+
+
+/* =========================================
+   🔥 FIRE THEME
+   ========================================= */
+
+.fire-theme {
+
+    background:
+
+        /*
+           Golden hot spot
+        */
+        radial-gradient(
+            circle at 72% 22%,
+            rgba(255, 213, 94, 0.85),
+            transparent 20%
+        ),
+
+        /*
+           Orange glow
+        */
+        radial-gradient(
+            circle at 30% 75%,
+            rgba(240, 91, 24, 0.75),
+            transparent 48%
+        ),
+
+        /*
+           Deep red base
+        */
+        linear-gradient(
+            135deg,
+            #300909,
+            #711c0b,
+            #a7350c,
+            #421006
+        );
+
+    box-shadow:
+        0 0 30px rgba(255, 72, 15, 0.20),
+        inset 0 0 35px rgba(255, 160, 40, 0.08);
+}
+
+
+.fire-theme h2 {
+    color: #ffd166;
+
+    text-shadow:
+        0 0 10px rgba(255, 170, 50, 0.65);
+}
+
+
+/* =========================================
+   🌍 EARTH THEME
+   ========================================= */
+
+.earth-theme {
+
+    background:
+
+        /*
+           Dusty rose / mineral glow
+        */
+        radial-gradient(
+            circle at 75% 25%,
+            rgba(180, 120, 130, 0.48),
+            transparent 27%
+        ),
+
+        /*
+           Stone / brown region
+        */
+        radial-gradient(
+            circle at 25% 75%,
+            rgba(115, 82, 70, 0.72),
+            transparent 48%
+        ),
+
+        /*
+           Deep earth base
+        */
+        linear-gradient(
+            135deg,
+            #24191d,
+            #50363a,
+            #70504a,
+            #292126
+        );
+
+    box-shadow:
+        0 0 30px rgba(170, 115, 105, 0.16),
+        inset 0 0 35px rgba(220, 170, 150, 0.05);
+}
+
+
+.earth-theme h2 {
+    color: #e0b0a0;
+
+    text-shadow:
+        0 0 10px rgba(210, 150, 140, 0.4);
+}
+
+
+/* =========================================
+   💨 WIND THEME
+   ========================================= */
+
+.wind-theme {
+
+    background:
+
+        /*
+           Pale moving-air glow
+        */
+        radial-gradient(
+            ellipse at 75% 25%,
+            rgba(205, 240, 245, 0.65),
+            transparent 22%
+        ),
+
+        /*
+           Cyan air layer
+        */
+        radial-gradient(
+            ellipse at 20% 70%,
+            rgba(80, 170, 190, 0.55),
+            transparent 42%
+        ),
+
+        /*
+           Dark blue-grey base
+        */
+        linear-gradient(
+            135deg,
+            #10232e,
+            #294653,
+            #4b6872,
+            #14242c
+        );
+
+    box-shadow:
+        0 0 30px rgba(100, 200, 220, 0.17),
+        inset 0 0 35px rgba(190, 240, 250, 0.06);
+}
+
+
+.wind-theme h2 {
+    color: #d2f7ff;
+
+    text-shadow:
+        0 0 12px rgba(150, 230, 245, 0.6);
+}
+
+
+/* =========================================
+   💧 WATER THEME
+   ========================================= */
+
+.water-theme {
+
+    background:
+
+        /*
+           Surface light
+        */
+        radial-gradient(
+            ellipse at 50% 5%,
+            rgba(180, 245, 255, 0.8),
+            transparent 22%
+        ),
+
+        /*
+           Bright blue water
+        */
+        radial-gradient(
+            ellipse at 25% 55%,
+            rgba(20, 150, 220, 0.75),
+            transparent 45%
+        ),
+
+        /*
+           Deep ocean
+        */
+        linear-gradient(
+            135deg,
+            #041b35,
+            #064f80,
+            #087eaf,
+            #032340
+        );
+
+    box-shadow:
+        0 0 35px rgba(20, 170, 240, 0.20),
+        inset 0 0 40px rgba(100, 220, 255, 0.07);
+}
+
+
+.water-theme h2 {
+    color: #a8f1ff;
+
+    text-shadow:
+        0 0 12px rgba(80, 220, 255, 0.65);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+
+        margin: 25px auto;
+
+        padding: 20px;
+    }
+
+    .content {
+        padding: 18px;
+    }
+
+    .element-card {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    nav button {
+        flex: 1;
+
+        min-width: 100px;
+    }
+}
+
+/* =========================================
+   ❄ SNOWFALL SYSTEM
+   ========================================= */
+
+#snow-container {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1000;
+}
+
+
+.snowflake {
+    position: absolute;
+
+    top: -50px;
+
+    color: rgba(235, 248, 255, 0.9);
+
+    user-select: none;
+
+    text-shadow:
+        0 0 5px rgba(180, 225, 255, 0.8),
+        0 0 12px rgba(150, 210, 255, 0.45);
+
+    animation-name: snowfall;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: 1;
+}
+
+
+@keyframes snowfall {
+
+    0% {
+        transform:
+            translate3d(0, -50px, 0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate3d(25px, 25vh, 0)
+            rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-20px, 50vh, 0)
+            rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translate3d(30px, 75vh, 0)
+            rotate(270deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-10px, 110vh, 0)
+            rotate(360deg);
+    }
+}
+
+/* =========================================
+   ✦ NIGHT SKY SPARKLES
+   ========================================= */
+
+#sparkle-container {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 999;
+}
+
+
+.sparkle {
+    position: absolute;
+
+    color: rgba(210, 240, 255, 0.9);
+
+    font-size: 10px;
+
+    text-shadow:
+        0 0 5px rgba(180, 230, 255, 0.9),
+        0 0 12px rgba(120, 200, 255, 0.6);
+
+    animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+
+@keyframes sparkleTwinkle {
+
+    0% {
+        opacity: 0.15;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+
+    100% {
+        opacity: 0.15;
+        transform: scale(0.5);
+    }
+}

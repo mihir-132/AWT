@@ -56,6 +56,15 @@ body {
     min-height: 100vh;
 
     background:
+        linear-gradient(
+            rgba(0, 234, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 234, 255, 0.025) 1px,
+            transparent 1px
+        ),
         radial-gradient(
             circle at 20% 10%,
             rgba(0, 234, 255, 0.08),
@@ -73,9 +82,17 @@ body {
             #020817
         );
 
+    background-size:
+        45px 45px,
+        45px 45px,
+        auto,
+        auto,
+        auto;
+
+    background-attachment: fixed;
+
     color: var(--text-primary);
 }
-
 
 /* =========================================
    LINKS
@@ -230,6 +247,26 @@ select {
         inset 0 0 10px rgba(0, 234, 255, 0.08);
 
     transform: translateY(-1px);
+
+    text-shadow:
+        0 0 8px var(--neon-cyan);
+}
+
+/* =========================================
+   ACTIVE NAVIGATION LINK
+   ========================================= */
+
+.nav-links a.active {
+    color: #ffffff;
+
+    background: rgba(0, 234, 255, 0.10);
+
+    border-color: rgba(0, 234, 255, 0.65);
+
+    box-shadow:
+        0 0 8px rgba(0, 234, 255, 0.45),
+        0 0 18px rgba(0, 120, 255, 0.18),
+        inset 0 0 12px rgba(0, 234, 255, 0.07);
 
     text-shadow:
         0 0 8px var(--neon-cyan);
@@ -2027,6 +2064,112 @@ select {
     }
 
    }
+
+
+/* =========================================
+   HERO CTA BUTTON
+   ========================================= */
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 28px;
+
+    min-width: 210px;
+
+    padding: 14px 24px;
+
+    color: #00111b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00eaff,
+            #168cff
+        );
+
+    border: 1px solid #70f5ff;
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 0 10px rgba(0, 234, 255, 0.55),
+        0 0 25px rgba(0, 120, 255, 0.2);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.hero-button:hover {
+    color: #00111b;
+
+    transform: translateY(-3px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.8),
+        0 0 35px rgba(0, 120, 255, 0.35);
+}
+
+.hero-button:active {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   FUTURISTIC SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #010611;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        var(--neon-cyan),
+        var(--neon-blue),
+        var(--neon-purple)
+    );
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 8px rgba(0, 234, 255, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+
+    box-shadow:
+        0 0 10px var(--neon-cyan);
+}
+
+
+/* =========================================
+   TEXT SELECTION
+   ========================================= */
+
+::selection {
+    color: #00111b;
+
+    background: var(--neon-cyan);
+}
 
 
 /* =========================================

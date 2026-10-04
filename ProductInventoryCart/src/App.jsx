@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -16,13 +16,19 @@ function App() {
 
    		 <div className="nav-links">
 
-       			 <Link to="/">Home</Link>
+   			 <NavLink to="/">
+        			Home
+    			</NavLink>
 
-        		<Link to="/products">Products</Link>
+    			<NavLink to="/products">
+        			Products
+    			</NavLink>
 
-        		<Link to="/cart">Cart</Link>
+    			<NavLink to="/cart">
+        			Cart
+    			</NavLink>
 
-    		</div>
+		</div>
 
            </nav>
 

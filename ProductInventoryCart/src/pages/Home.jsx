@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
     return (
         <main className="home-page">
@@ -21,6 +23,10 @@ function Home() {
                         Your one-stop futuristic inventory
                         and shopping destination.
                     </p>
+
+                    <Link to="/products" className="hero-button">
+    			EXPLORE PRODUCTS
+                    </Link>
 
                     <div className="hero-features">
 

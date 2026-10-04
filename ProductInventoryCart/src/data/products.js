@@ -5,7 +5,7 @@ const products = [
         category: "Electronics",
         price: 55000,
         quantity: 10,
-        image: "/images/laptop.svg"
+        image: "/images/laptop.png"
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const products = [
         category: "Electronics",
         price: 800,
         quantity: 25,
-        image: "/images/mouse.svg"
+        image: "/images/mouse.png"
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const products = [
         category: "Furniture",
         price: 4500,
         quantity: 15,
-        image: "/images/chair.svg"
+        image: "/images/chair.png"
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const products = [
         category: "Stationery",
         price: 100,
         quantity: 50,
-        image: "/images/notebook.svg"
+        image: "/images/notebook.png"
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ const products = [
         category: "Electronics",
         price: 1200,
         quantity: 20,
-        image: "/images/keyboard.svg"
+        image: "/images/keyboard.png"
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ const products = [
         category: "Furniture",
         price: 7000,
         quantity: 8,
-        image: "/images/desk.svg"
+        image: "/images/desk.png"
     }
 ];
 

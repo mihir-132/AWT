@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-    <rect x="110" y="40" width="180" height="100" rx="20" fill="#795548"/>
-    <rect x="110" y="135" width="180" height="35" rx="10" fill="#a1887f"/>
-    <line x1="140" y1="170" x2="110" y2="255" stroke="#444" stroke-width="15"/>
-    <line x1="260" y1="170" x2="290" y2="255" stroke="#444" stroke-width="15"/>
-    <text x="200" y="290" text-anchor="middle" font-size="28">CHAIR</text>
-</svg>
